@@ -141,13 +141,6 @@ body {
     border-top-left-radius: 4px;
   }
   
-  /*
-  .resaTable th:last-child {
-    border-left: 2px solid var(--black-lighter-2);
-    border-bottom-left-radius: 4px;
-  }
-  */
-  
   .resaTable tr:first-child th:last-child {
     border-top-right-radius: 4px;
     border-right: 2px solid var(--black-lighter-2);
@@ -190,6 +183,32 @@ body {
   
   .resaTable__delete:hover path {
     fill: var(--white);
+  }
+
+  .button_modifier {
+    background-color: rgb(16, 16, 16);
+    color: white;
+    border: solid 2px white;
+    align-items: center;
+    font-weight: bold;
+    padding: 3px 7px;
+  }
+
+  .button_modifier:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .button_supprimer {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    margin-left: 10px;
+    text-shadow: #fff3f3;
+  }
+
+  .button_supprimer:hover {
+    cursor: pointer;
   }
   
   @media screen and (max-width: 1050px) {

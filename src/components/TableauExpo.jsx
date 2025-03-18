@@ -16,7 +16,7 @@ export const Exposition = () => {
   // Fonction pour récupérer les réservations de l'API
   const fetchReservations = async () => {
     try {
-      const response = await fetch('http://localhost:8888/lunastra_api/index.php');
+      const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php');
       const data = await response.json();
       setReservations(data);
     } catch (error) {
@@ -224,9 +224,9 @@ export const Exposition = () => {
                   </td>
                   <td>
                     {editing === r.id ? (
-                      <button onClick={() => handleSave(r.id)}>Sauvegarder</button>
+                      <button class="button_modifier" onClick={() => handleSave(r.id)}>Sauvegarder</button>
                     ) : (
-                      <button onClick={() => handleEdit(r.id, r)}>Modifier</button>
+                      <button class="button_supprimer" onClick={() => handleEdit(r.id, r)}>Modifier</button>
                     )}
                     <button onClick={handleDelete} value={r.id}>
                       ❌

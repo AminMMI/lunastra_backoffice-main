@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   
 
   const login = async (username, password) => {
-    const response = await fetch('http://api.lunastra.ghmir.butmmi.o2switch.site/login.php', {
+    const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/login.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -56,5 +56,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export { AuthContext };
-
 export const useAuth = () => React.useContext(AuthContext);

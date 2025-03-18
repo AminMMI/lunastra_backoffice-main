@@ -7,7 +7,7 @@ export const StatsResa = () => {
 
   useEffect(() => {
     // Effectuer la requête à l'API pour récupérer les réservations
-    fetch("http://localhost:8888/lunastra_api/index.php")
+    fetch("https://api.lunastra.ghmir.butmmi.o2switch.site/index.php")
       .then(response => response.json())
       .then(data => {
         console.log("Données récupérées de l'API :", data);
