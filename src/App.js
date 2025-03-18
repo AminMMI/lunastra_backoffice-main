@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       {!user ? (
-        <div>
+        <div class="formulaire">
           <h2>Connexion</h2>
           <form onSubmit={handleLogin}>
             <div>

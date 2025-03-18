@@ -33,7 +33,7 @@ export const Exposition = () => {
     const idToDelete = Number(e.target.value);
     // Envoie la requête POST pour supprimer la réservation
     try {
-      const response = await fetch('http://localhost:8888/lunastra_api/index.php', {
+      const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php', {
         method: 'POST',
         body: JSON.stringify({ action: 'delete', id: idToDelete }),
         headers: {
@@ -86,7 +86,7 @@ export const Exposition = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:8888/lunastra_api/index.php', {
+      const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php', {
         method: 'POST',
         body: JSON.stringify({
           action: 'update', // Action de mise à jour
