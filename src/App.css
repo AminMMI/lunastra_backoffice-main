@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Aurora';
+  src: url('./font/Aurora.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Aurora', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+summary {
+  color: white;
+  font-family: 'Aurora';
+}
+
+h2 {
+  font-family: 'Aurora', sans-serif;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.button_logout {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  border: solid 1px white;
+  padding: 3px 7px;
+}
+
+.button_logout:hover {
+  background-color: white;
+  color: black;
+}
