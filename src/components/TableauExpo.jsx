@@ -226,9 +226,9 @@ export const Exposition = () => {
                     {editing === r.id ? (
                       <button class="button_modifier" onClick={() => handleSave(r.id)}>Sauvegarder</button>
                     ) : (
-                      <button class="button_supprimer" onClick={() => handleEdit(r.id, r)}>Modifier</button>
+                      <button class="button_modifier" onClick={() => handleEdit(r.id, r)}>Modifier</button>
                     )}
-                    <button onClick={handleDelete} value={r.id}>
+                    <button class="button_supprimer" onClick={handleDelete} value={r.id}>
                       ❌
                     </button>
                   </td>
