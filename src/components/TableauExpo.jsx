@@ -52,18 +52,25 @@ export const Exposition = () => {
   };
 
   const handleRefresh = () => {
+    if (!RefRefreshIcon.current || !buttonRefresh.current) return;
+  
     if (buttonRefresh.current.disabled) return;
     buttonRefresh.current.disabled = true;
+  
     RefRefreshIcon.current.style.transition = "transform 0.8s ease-in-out";
     RefRefreshIcon.current.style.transform = "rotate(360deg)";
+  
     setTimeout(() => {
-      RefRefreshIcon.current.style.transition = "none";
-      RefRefreshIcon.current.style.transform = "rotate(0deg)";
+      if (RefRefreshIcon.current) { 
+        RefRefreshIcon.current.style.transition = "none";
+        RefRefreshIcon.current.style.transform = "rotate(0deg)";
+      }
       buttonRefresh.current.disabled = false;
     }, 1000);
-    // Recharger les réservations après rafraîchissement
+  
     fetchReservations();
   };
+  
 
   const handleEdit = (id, reservation) => {
     setEditing(id);
@@ -119,11 +126,13 @@ export const Exposition = () => {
     }
   };
 
+
+
   return (
     <>
       <div className="refresh-table">
         <button onClick={handleRefresh} ref={buttonRefresh}>
-          🔄
+        <span ref={RefRefreshIcon}>🔄</span>
         </button>
       </div>
       {reservations.length === 0 ? (
