@@ -24,16 +24,22 @@ summary {
   font-family: 'Aurora';
 }
 
+img{
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
 h2 {
   font-family: 'Aurora', sans-serif;
   text-align: center;
-  margin-bottom: 100px;
 }
+
 .formulaire {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-family: 'Aurora', sans-serif;
 }
 

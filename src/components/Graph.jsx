@@ -8,15 +8,13 @@ export const Graph = () => {
     const [labels, setLabels] = useState([]);
     const [values, setValues] = useState([]);
 
-    // Fonction pour récupérer les données de l'API
     const fetchGraphData = async () => {
         try {
             const response = await fetch("https://api.lunastra.ghmir.butmmi.o2switch.site/index.php");
             const data = await response.json();
             
-            // Extraire les labels et les valeurs des réservations
-            const newLabels = data.map(resa => resa.date); // Labels basés sur la date
-            const newValues = data.map(resa => resa.amount); // Valeurs basées sur le nombre de billets
+            const newLabels = data.map(resa => resa.date); 
+            const newValues = data.map(resa => resa.amount); 
             
             setLabels(newLabels);
             setValues(newValues);
@@ -60,7 +58,7 @@ export const Graph = () => {
                 }
             });
         }
-    }, [labels, values]); // Met à jour le graphique lorsque les données changent
+    }, [labels, values]); 
 
     return (
         <div className="resa_graph">

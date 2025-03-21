@@ -3,7 +3,7 @@ import "../style/Tableau.scss";
 
 export const Exposition = () => {
   const [reservations, setReservations] = useState([]);
-  const [editing, setEditing] = useState(null);  // Gère quel élément est en cours d'édition
+  const [editing, setEditing] = useState(null); 
   const [editedValuePrenom, setEditedValuePrenom] = useState("");
   const [editedValueNom, setEditedValueNom] = useState("");
   const [editedValueEmail, setEditedValueEmail] = useState("");
@@ -13,7 +13,6 @@ export const Exposition = () => {
   const RefRefreshIcon = useRef(null);
   const buttonRefresh = useRef(null);
 
-  // Fonction pour récupérer les réservations de l'API
   const fetchReservations = async () => {
     try {
       const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php');
@@ -31,7 +30,6 @@ export const Exposition = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
     const idToDelete = Number(e.target.value);
-    // Envoie la requête POST pour supprimer la réservation
     try {
       const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php', {
         method: 'POST',
@@ -43,7 +41,6 @@ export const Exposition = () => {
 
       const result = await response.json();
       if (result.success) {
-        // Filtrer la réservation supprimée de l'état local
         setReservations(reservations.filter((r) => r.id !== idToDelete));
       }
     } catch (error) {
@@ -53,7 +50,6 @@ export const Exposition = () => {
 
   const handleRefresh = () => {
     if (!RefRefreshIcon.current || !buttonRefresh.current) return;
-  
     if (buttonRefresh.current.disabled) return;
     buttonRefresh.current.disabled = true;
   
@@ -96,9 +92,9 @@ export const Exposition = () => {
       const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/index.php', {
         method: 'POST',
         body: JSON.stringify({
-          action: 'update', // Action de mise à jour
-          id: id,           // ID de la réservation
-          updatedValues: updatedReservation, // Toutes les valeurs modifiées
+          action: 'update', 
+          id: id,       
+          updatedValues: updatedReservation, 
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -109,12 +105,11 @@ export const Exposition = () => {
       console.log("Réponse du serveur : ", result);
 
       if (result.success) {
-        // Mettre à jour les données dans le frontend
         setReservations(reservations.map((r) =>
           r.id === id ? { ...r, ...updatedReservation } : r
         ));
-        setEditing(null); // Réinitialiser l'état de modification
-        setEditedValuePrenom(""); // Réinitialiser l'état après la sauvegarde
+        setEditing(null); 
+        setEditedValuePrenom(""); 
         setEditedValueNom("");
         setEditedValueEmail("");
         setEditedValueDate("");

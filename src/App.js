@@ -5,7 +5,6 @@ import StatsResa from './components/StatsResa.jsx';
 import Graph from './components/Graph.jsx';
 import './App.css';
 
-
 function App() {
   const { user, login, logout } = useContext(AuthContext);  
   const [username, setUsername] = useState('');
@@ -19,9 +18,10 @@ function App() {
 
   return (
     <div>
+      <title>Backoffice - Lunastra</title>
       {!user ? (
         <div class="formulaire">
-          <h2>Connexion</h2>
+          <img src="/logo.svg" alt="Logo Lunastra" height={100} width={100} />
           <form onSubmit={handleLogin}>
             <div>
               <label>Nom d'utilisateur</label>

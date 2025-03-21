@@ -27,20 +27,31 @@ export const AuthProvider = ({ children }) => {
   
 
   const login = async (username, password) => {
-    const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/login.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    });
-
-    const data = await response.json();
-    if (data.status === 'success') {
-      setToken(data.token);
-      localStorage.setItem('token', data.token);
-    } else {
-      alert('Identifiants incorrects');
+    try {
+      const response = await fetch('https://api.lunastra.ghmir.butmmi.o2switch.site/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Problème de connexion à l\'API');
+      }
+  
+      const data = await response.json();
+      
+      if (data.status === 'success') {
+        setToken(data.token);
+        localStorage.setItem('token', data.token);
+      } else {
+        alert('Identifiants incorrects');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+      alert('Une erreur est survenue. Veuillez réessayer plus tard.');
     }
   };
+  
 
   const logout = () => {
     setToken('');
