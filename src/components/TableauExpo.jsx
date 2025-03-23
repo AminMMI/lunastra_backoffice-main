@@ -121,13 +121,11 @@ export const Exposition = () => {
     }
   };
 
-
-
   return (
     <>
       <div className="refresh-table">
         <button onClick={handleRefresh} ref={buttonRefresh}>
-        <span ref={RefRefreshIcon}>🔄</span>
+          <span ref={RefRefreshIcon}>🔄</span>
         </button>
       </div>
       {reservations.length === 0 ? (
@@ -157,6 +155,8 @@ export const Exposition = () => {
               };
 
               const dateReservation = new Date(r.date).toLocaleDateString("fr-FR", optionsDate);
+
+              const formattedHoraire = r.horaire ? r.horaire.slice(0, 5) : ""; 
 
               return (
                 <tr key={r.id}>
@@ -212,7 +212,7 @@ export const Exposition = () => {
                         onChange={(e) => setEditedValueHoraire(e.target.value)} 
                       />
                     ) : (
-                      r.horaire
+                      formattedHoraire // Affichage de l'horaire formaté en hh:mm
                     )}
                   </td>
                   <td>
@@ -228,11 +228,11 @@ export const Exposition = () => {
                   </td>
                   <td>
                     {editing === r.id ? (
-                      <button class="button_modifier" onClick={() => handleSave(r.id)}>Sauvegarder</button>
+                      <button className="button_modifier" onClick={() => handleSave(r.id)}>Sauvegarder</button>
                     ) : (
-                      <button class="button_modifier" onClick={() => handleEdit(r.id, r)}>Modifier</button>
+                      <button className="button_modifier" onClick={() => handleEdit(r.id, r)}>Modifier</button>
                     )}
-                    <button class="button_supprimer" onClick={handleDelete} value={r.id}>
+                    <button className="button_supprimer" onClick={handleDelete} value={r.id}>
                       ❌
                     </button>
                   </td>
